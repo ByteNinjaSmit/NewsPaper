@@ -12,10 +12,10 @@ node_modules/
 .env
 
 uploads
-server/uploads
-server/uploads/*.pdf
-server/uploads/*.jpg
+uploads
 uploads/
+uploads/*.pdf
+uploads/*.jpg
 
 
 dist
