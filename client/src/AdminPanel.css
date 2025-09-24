@@ -1,0 +1,384 @@
+/* Modern Glassmorphism Admin Panel */
+
+/* Layout root */
+.admin-root {
+    display: flex;
+    gap: 32px;
+    min-height: calc(100vh - 68px);
+    padding: 32px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #e0f7fa 100%);
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    transition: background 0.5s;
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+    width: 260px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 12px 32px rgba(2,136,209,0.10), 0 1.5px 8px rgba(38,198,218,0.08);
+    border: 1px solid rgba(2,136,209,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex-shrink: 0;
+    backdrop-filter: blur(8px);
+    transition: box-shadow 0.3s;
+}
+
+.admin-sidebar {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 16px 40px rgba(2,136,209,0.18), 0 2px 12px rgba(38,198,218,0.12);
+    border: 2px solid #0288d1;
+}
+
+/* Brand */
+.admin-brand {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #0288d1 60%, #26c6da 100%);
+    box-shadow: 0 8px 24px rgba(2,136,209,0.18);
+    font-size: 22px;
+    letter-spacing: 2px;
+    transition: transform 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.08) rotate(-2deg);
+}
+
+.brand-text h3 {
+    font-size: 22px;
+    color: #1e2b4d;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.brand-text small {
+    color: #26c6da;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Sidebar nav */
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.nav-item {
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #234063;
+    font-weight: 500;
+    position: relative;
+    transition: background 180ms, color 180ms;
+    z-index: 1;
+}
+
+.nav-item:hover {
+    background: rgba(2,136,209,0.10);
+    color: #0288d1;
+}
+
+.nav-item.active {
+    box-shadow: 0 0 12px 2px #26c6da;
+    border: 2px solid #0288d1;
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(180deg,#0288d1,#26c6da);
+    border-radius: 4px;
+    z-index: 2;
+}
+
+/* Logout area */
+.admin-logout {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-logout {
+    background: linear-gradient(90deg,#ff4d4f,#e53935 80%);
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(255,77,79,0.12);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(90deg,#e53935,#ff4d4f 80%);
+    box-shadow: 0 8px 24px rgba(255,77,79,0.18);
+}
+
+/* MAIN CONTENT */
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: transparent;
+    transition: gap 0.3s;
+}
+
+/* Header */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.admin-header h1 {
+    font-size: 26px;
+    color: #1e2b4d;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.kv {
+    color: #0288d1;
+    font-size: 15px;
+    font-weight: 500;
+    background: linear-gradient(90deg,#e3f2fd,#e0f7fa);
+    padding: 6px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(2,136,209,0.06);
+}
+
+/* Table / list */
+.table-section {
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 16px 48px rgba(2,136,209,0.18);
+    border: 2px solid #26c6da;
+    padding: 18px;
+    box-shadow: 0 8px 32px rgba(18,38,63,0.08);
+    transition: box-shadow 0.3s;
+    backdrop-filter: blur(6px);
+}
+
+.table-section:hover {
+    box-shadow: 0 16px 48px rgba(18,38,63,0.14);
+}
+
+/* Edition cards */
+.edition-card {
+    background: linear-gradient(120deg,#e3f2fd 60%,#e0f7fa 100%);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 18px rgba(2,136,209,0.10);
+    border: 1px solid rgba(2,136,209,0.04);
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+}
+
+.edition-card:hover {
+    box-shadow: 0 8px 32px rgba(2,136,209,0.18);
+    transform: translateY(-2px) scale(1.01);
+}
+
+.edition-card h3 {
+    font-size: 18px;
+    color: #0288d1;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.edition-card p {
+    color: #234063;
+    font-size: 15px;
+}
+
+.edition-card small {
+    color: #26c6da;
+    font-size: 13px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: linear-gradient(90deg,#0288d1,#26c6da 80%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(2,136,209,0.10);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.btn.small {
+    padding: 7px 14px;
+    font-size: 14px;
+}
+
+.btn.danger {
+    background: linear-gradient(90deg,#e53935,#ff4d4f 80%);
+}
+
+.btn:hover {
+    background: linear-gradient(90deg,#26c6da,#0288d1 80%);
+    box-shadow: 0 4px 16px rgba(2,136,209,0.18);
+    transform: scale(1.04);
+}
+
+.btn.danger:hover {
+    background: linear-gradient(90deg,#ff4d4f,#e53935 80%);
+    box-shadow: 0 4px 16px rgba(255,77,79,0.18);
+}
+
+/* Form cards */
+.form-card {
+    background: rgba(255,255,255,0.98);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 18px rgba(2,136,209,0.10);
+    border: 1px solid rgba(2,136,209,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: box-shadow 0.2s;
+}
+
+.form-card label {
+    font-size: 15px;
+    color: #0288d1;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.form-card input[type="text"],
+.form-card input[type="date"],
+.form-card input[type="file"],
+.form-card select {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #e0f7fa;
+    font-size: 15px;
+    margin-bottom: 8px;
+    background: #f8fbff;
+    color: #234063;
+    transition: border 0.2s;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+    border: 1.5px solid #0288d1;
+    outline: none;
+}
+
+.form-card button {
+    margin-top: 10px;
+}
+.admin-toast {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg,#0288d1,#26c6da 80%);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 8px 32px rgba(2,136,209,0.18);
+    z-index: 9999;
+    animation: fadeIn 0.7s;
+}
+/* Responsive */
+@media (max-width: 900px) {
+    .admin-root {
+        flex-direction: column;
+        padding: 18px;
+        gap: 18px;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+        padding: 14px;
+        overflow-x: auto;
+        border-radius: 14px;
+    }
+
+    .admin-nav {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .admin-logout {
+        margin-left: auto;
+    }
+
+    .table-section {
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo { width: 38px; height: 38px; font-size: 16px; }
+    .brand-text h3 { font-size: 16px; }
+    .admin-header h1 { font-size: 18px; }
+    .edition-card h3 { font-size: 15px; }
+    .form-card { padding: 12px; gap: 10px; }
+    .form-card label { font-size: 13px; }
+    .form-card input, .form-card button { font-size: 13px; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+/* Make text black in delete and update tab sections */
+.view-section,
+.form-card {
+    color: #111 !important;
+}
+
+.view-section h3,
+.view-section p,
+.view-section small,
+.form-card label,
+.form-card input,
+.form-card select,
+.form-card button,
+.form-card ul,
+.form-card li {
+    color: #111 !important;
+}
